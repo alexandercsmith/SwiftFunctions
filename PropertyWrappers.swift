@@ -9,12 +9,20 @@ import SwiftUI
 //
 // Create Property Wrapper and Class with Properties for Properties
 @propertyWrapper
-class ClassName
-  // properties
+class ClassName {
+  private(set) var value: String = ""
 
-// Execute Property Wrapper on Following Property
-@ClassName
-var attr: String
+  var wrappedValue: String {
+    get { value }
+    set { value }
+  }
+}
+
+// Execute Property Wrapper `@ClassName` on Following Property
+class Class {
+  @ClassName
+  var prop: String
+}
 
 
 // ===
